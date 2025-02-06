@@ -1,4 +1,3 @@
-
 # Kubernetes Pod Deployment Guide with Minikube
 
 This guide provides step-by-step instructions on how to set up Minikube and `kubectl` to deploy your first Kubernetes Pod using a `pod.yml` configuration file. It also covers essential `kubectl` commands and how to use `curl` to access the deployed Pod.
@@ -71,34 +70,60 @@ spec:
 
 ## Essential `kubectl` Commands
 
-1. **Check Pod Status**:
+1. **Create a Pod with `kubectl run`**:
+   ```bash
+   kubectl run nginx --image=nginx
+   ```
+   - Creates a new Pod named `nginx` using the official Nginx image.
+   - This is an alternative to deploying a Pod using a YAML file.
+
+2. **Check Pod Status**:
    ```bash
    kubectl get pods
    ```
-2. **List All Pods in Wide Format**:
+
+3. **List All Pods in Wide Format**:
    ```bash
    kubectl get pods -o wide
    ```
-3. **Get Detailed Information About a Pod**:
+
+4. **Get Detailed Information About a Pod**:
    ```bash
    kubectl describe pod nginx
    ```
-4. **View Pod Logs**:
+   - Provides detailed information about the `nginx` Pod, including events, conditions, and container states.
+
+5. **View Pod Logs**:
    ```bash
    kubectl logs nginx
    ```
-5. **Delete a Pod**:
+
+6. **Delete a Pod**:
    ```bash
    kubectl delete pod nginx
    ```
-6. **Access the Pod’s Terminal**:
+
+7. **Access the Pod’s Terminal**:
    ```bash
    kubectl exec -it nginx -- /bin/bash
    ```
-7. **Get Cluster Information**:
+
+8. **Get Cluster Information**:
    ```bash
    kubectl cluster-info
    ```
+
+9. **List All Nodes in the Cluster**:
+   ```bash
+   kubectl get nodes
+   ```
+   - Displays all nodes in your Kubernetes cluster.
+
+10. **Get Detailed Node Information**:
+    ```bash
+    kubectl get nodes -o wide
+    ```
+    - Provides additional details such as internal and external IPs and Kubernetes versions.
 
 ---
 
